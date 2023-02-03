@@ -3,7 +3,7 @@
 public class ReplyMetadata
 {
     public List<ReplyData>?  Data { get; set; }
-    public ReplyMeta Meta { get; set; }
+    public Meta Meta { get; set; }
 }
 
 public class ReplyData
@@ -15,13 +15,4 @@ public class ReplyData
     public DateTime Created_At { get; set; }
     public string Conversation_Id { get; set; }
     public string Text { get; set; }
-}
-
-public class ReplyMeta
-{
-    public int Result_Count { get; set; }
-    public string Newest_Id { get; set; }
-    public string Oldest_Id { get; set; }
-    public string Next_Token { get; set; }
-    public string Previous_Token { get; set; }
 }
