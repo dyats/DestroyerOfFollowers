@@ -79,8 +79,8 @@ foreach (var tweet in timeLineTweetsIds)
         request.AuthorizationHeader = $"Bearer {userCredentials.BearerToken}";
     });
 
-    var threadReplyIds = JsonConvert.DeserializeObject<ReplyMetadata>(replies.Content).Data?
-        .Select(x => (Id: Convert.ToInt64(x.Id), CreatedAt: new DateTimeOffset(x.Created_At)))
+    var threadReplyIds = JsonConvert.DeserializeObject<MetaData<ReplyData>>(replies.Content).Data?
+        .Select(x => (Id: Convert.ToInt64(x.Id), CreatedAt: new DateTimeOffset(x.CreatedAt)))
         .Distinct();
 
     if (threadReplyIds?.Any() ?? false)
@@ -142,7 +142,7 @@ foreach (var tweet in tweets.Tweets)
         request.HttpMethod = Tweetinvi.Models.HttpMethod.GET;
     });
 
-    var likedUserIds = JsonConvert.DeserializeObject<LikesMetadata>(likingUsers.Content).Data?.Select(x => Convert.ToInt64(x.Id));
+    var likedUserIds = JsonConvert.DeserializeObject<MetaData<ReplyData>>(likingUsers.Content).Data?.Select(x => Convert.ToInt64(x.Id));
 
     // add unique ids to the main list
     userIdsThatInteracted.AddRange(likedUserIds ?? Enumerable.Empty<long>());
