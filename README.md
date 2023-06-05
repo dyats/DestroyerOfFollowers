@@ -1,16 +1,19 @@
 # Destroyer Of Followers
-Script created to unfollow followers from twitter in case we haven't communicated for a while.
+
+Destroyer Of Followers is a script specifically designed to unfollow Twitter users who haven't interacted with you recently. This automated process keeps your Twitter community engaged and relevant.
 
 ## Limitations
-- Checks only replies to your tweets for last 7 days
-- Checks only likes on last 75 tweets(including you replies to main tweet)
 
-## Application flow
-1. When you'll launch the application you'll be asked to authorize in the browser and Twitter will show you the PIN code which you have to enter in the console
-2. Get user timeline tweets (for last month)
-3. Get direct replies to those tweets from authorized user(main thread replies)
-4. Takes only last 75 tweets (limitation of the API for request that reads who liked your tweets, **take a look for point 6**)
-5. Get all replies to these tweets for last 7 days
-6. Check who liked last 75 tweets (limitation 75 requests for 15 mins)
-7. Check which followers is not present in this list of users that interacted with me
-8. Block -> Unblock user
+- The script checks only replies to your tweets from the last 7 days.
+- It also checks likes on your last 75 tweets, including your replies to the main tweet.
+
+## Application Flow
+
+1. **Authorization**: On launching the application, you'll be prompted to authorize in your browser. Twitter will then display a PIN code which you should input into the console.
+2. **Timeline Retrieval**: The application fetches user timeline tweets from the last month.
+3. **Replies Extraction**: It retrieves direct replies to those tweets from the authorized user (main thread replies).
+4. **Tweet Limit**: Only the last 75 tweets are considered due to the API's limitation for requests that read who liked your tweets.
+5. **Interaction Checks**: The application collects all replies to these tweets from the last 7 days and checks who liked your last 75 tweets.
+6. **Unfollowing Process**: It identifies which followers are not present in the list of users that interacted with you, then proceeds to block and unblock these users, effectively unfollowing them.
+
+Maintain a healthy and engaged Twitter community with the Destroyer Of Followers.
